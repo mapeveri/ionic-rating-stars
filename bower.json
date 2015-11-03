@@ -26,7 +26,7 @@
     "example",
     "dist/js/angular.d.ts",
     "dist/js/jquery.d.ts",
-    "dist/js/tsconfig.json",
+    "dist/js/tsconfig.json"
   ],
   "dependencies": {
     "angular": "*"
