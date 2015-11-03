@@ -1,0 +1,30 @@
+{
+  "name": "ionic-rating-stars",
+  "version": "0.0.1",
+  "description": "This directive angular.js contains one container for rating with stars.",
+  "main": "angular-rating-face.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mapeveri/ionic-rating-stars"
+  },
+  "keywords": [
+    "AngularJs"
+  ],
+  "author": "Martín Peveri",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mapeveri/ionic-rating-stars/issues"
+  },
+  "homepage": "https://github.com/mapeveri/ionic-rating-stars",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.4.2"
+  }
+}

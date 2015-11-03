@@ -1,0 +1,28 @@
+{
+  "name": "ionic-rating-stars",
+  "version": "0.0.1",
+  "authors": [
+    "mapeveri <martinpeveri@gmail.com>"
+  ],
+  "description": "This directive angular.js contains one container for rating with stars.",
+  "main": "ionic-rating-stars.js",
+  "moduleType": [],
+  "keywords": [
+    "Angularjs",
+    "Javascript"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/mapeveri/ionic-rating-stars",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "images",
+    "example",
+    "dist/js/angular.d.ts",
+    "dist/js/jquery.d.ts",
+    "dist/js/tsconfig.json",
+  ]
+}

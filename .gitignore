@@ -1,0 +1,4 @@
+node_modules/
+dist/js/tsconfig.json
+dist/js/jquery.d.ts
+dist/js/angular.d.ts
