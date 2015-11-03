@@ -6,7 +6,7 @@
   var App = angular.module("ionic-rating-stars", []);
 
   //Filter for create array with count indicates
-  App.filter("range", () => {
+  App.filter("rangeionicstars", () => {
     return (n) => {
       var res: number[] = [];
       for (var i = 0; i < n; i++){
@@ -30,7 +30,7 @@
             }
             //Template with the images
             var dataTemplate: string;
-            dataTemplate = '<span ng-repeat="i in ' + max + ' | range">';
+            dataTemplate = '<span ng-repeat="i in ' + max + ' | rangeionicstars">';
             dataTemplate += '<i class="ion-ios-star-outline" style="font-size: 30px;" id="rating_star_{{ i +1 }}" val="{{ i +1 }}" />'
             dataTemplate += '</span>';
             return dataTemplate;

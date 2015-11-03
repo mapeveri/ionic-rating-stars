@@ -1,7 +1,7 @@
 (function () {
     "use strict";
     var App = angular.module("ionic-rating-stars", []);
-    App.filter("range", function () {
+    App.filter("rangeionicstars", function () {
         return function (n) {
             var res = [];
             for (var i = 0; i < n; i++) {
@@ -22,7 +22,7 @@
                         max = 5;
                     }
                     var dataTemplate;
-                    dataTemplate = '<span ng-repeat="i in ' + max + ' | range">';
+                    dataTemplate = '<span ng-repeat="i in ' + max + ' | rangeionicstars">';
                     dataTemplate += '<i class="ion-ios-star-outline" style="font-size: 30px;" id="rating_star_{{ i +1 }}" val="{{ i +1 }}" />';
                     dataTemplate += '</span>';
                     return dataTemplate;
