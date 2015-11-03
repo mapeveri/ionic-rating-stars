@@ -1,6 +1,6 @@
 {
   "name": "ionic-rating-stars",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This directive angular.js contains one container for rating with stars.",
   "main": "angular-rating-face.js",
   "directories": {

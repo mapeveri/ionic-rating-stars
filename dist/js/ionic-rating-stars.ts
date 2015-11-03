@@ -81,6 +81,7 @@
               } finally {
                 value_model.assign(scope, id);
                 scope.$apply();
+                max = value_max(scope);
                 scope.set_selected(id, max);
               }
             });
@@ -92,6 +93,7 @@
               } catch (e) {
                 id = 0;
               } finally {
+                max = value_max(scope);
                 scope.set_selected(id, max);
               }
             });
@@ -103,6 +105,7 @@
               } catch (e) {
                 id = 0;
               } finally {
+                max = value_max(scope);
                 scope.set_selected(id, max);
               }
             });
