@@ -30,8 +30,8 @@ Getting started
 
       alert($scope.rating);
 
-Attribute
----------
+Attributes
+----------
 
 1. Model: This attribute is the model (the your controller) that contains the value clicked.
 
