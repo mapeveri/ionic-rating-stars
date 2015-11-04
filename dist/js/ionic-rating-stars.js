@@ -49,9 +49,14 @@
                     var value_model;
                     var value_max;
                     value_model = $parse(attr['ngModel']);
-                    value_max = $parse(attr['max']);
                     selected = value_model(scope);
-                    max = value_max(scope);
+                    if (angular.isDefined(attr.max)) {
+                        value_max = $parse(attr['max']);
+                        max = value_max(scope);
+                    }
+                    else {
+                        max = 5;
+                    }
                     $timeout(function () {
                         scope.set_selected(selected, max);
                     });
@@ -65,7 +70,12 @@
                         finally {
                             value_model.assign(scope, id);
                             scope.$apply();
-                            max = value_max(scope);
+                            if (angular.isDefined(attr.max)) {
+                                max = value_max(scope);
+                            }
+                            else {
+                                max = 5;
+                            }
                             scope.set_selected(id, max);
                         }
                     });
@@ -77,7 +87,12 @@
                             id = 0;
                         }
                         finally {
-                            max = value_max(scope);
+                            if (angular.isDefined(attr.max)) {
+                                max = value_max(scope);
+                            }
+                            else {
+                                max = 5;
+                            }
                             scope.set_selected(id, max);
                         }
                     });
@@ -89,8 +104,29 @@
                             id = 0;
                         }
                         finally {
-                            max = value_max(scope);
+                            if (angular.isDefined(attr.max)) {
+                                max = value_max(scope);
+                            }
+                            else {
+                                max = 5;
+                            }
                             scope.set_selected(id, max);
+                        }
+                    });
+                    scope.$watch(attr['ngModel'], function (v) {
+                        if (angular.isDefined(attr.max)) {
+                            max = value_max(scope);
+                        }
+                        else {
+                            max = 5;
+                        }
+                        if (v == 0) {
+                            scope.set_selected(0, max);
+                        }
+                        else {
+                            $timeout(function () {
+                                scope.set_selected(v, max);
+                            });
                         }
                     });
                 }

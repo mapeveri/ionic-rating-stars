@@ -61,12 +61,19 @@
             //For get value max
             var value_max;
 
-            //Parse attributes
+            //Parse attribute
             value_model = $parse(attr['ngModel']);
-            value_max = $parse(attr['max']);
             //Get element default
             selected = value_model(scope);
-            max = value_max(scope);
+
+            //Check if has attr max
+            if(angular.isDefined(attr.max)){
+              value_max = $parse(attr['max']);
+              max = value_max(scope);
+            }else{
+              max = 5;
+            }
+
             //Set value default
             $timeout(function(){
               scope.set_selected(selected, max);
@@ -81,7 +88,12 @@
               } finally {
                 value_model.assign(scope, id);
                 scope.$apply();
-                max = value_max(scope);
+                //Check if has attr max
+                if(angular.isDefined(attr.max)){
+                  max = value_max(scope);
+                }else{
+                  max = 5;
+                }
                 scope.set_selected(id, max);
               }
             });
@@ -93,7 +105,12 @@
               } catch (e) {
                 id = 0;
               } finally {
-                max = value_max(scope);
+                //Check if has attr max
+                if(angular.isDefined(attr.max)){
+                  max = value_max(scope);
+                }else{
+                  max = 5;
+                }
                 scope.set_selected(id, max);
               }
             });
@@ -105,10 +122,34 @@
               } catch (e) {
                 id = 0;
               } finally {
-                max = value_max(scope);
+                //Check if has attr max
+                if(angular.isDefined(attr.max)){
+                  max = value_max(scope);
+                }else{
+                  max = 5;
+                }
                 scope.set_selected(id, max);
               }
             });
+
+            //If change the value model reset hoover
+            scope.$watch(attr['ngModel'], function(v){
+                //Check if has attr max
+                if(angular.isDefined(attr.max)){
+                  max = value_max(scope);
+                }else{
+                  max = 5;
+                }
+                //Check if value is default
+                if(v==0){
+                  scope.set_selected(0, max);
+                }else{
+                  $timeout(function () {
+                    scope.set_selected(v, max);
+                  });
+                }
+            });
+
           }
       };
   }]);
