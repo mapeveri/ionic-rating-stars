@@ -3,10 +3,13 @@
 
 (()=> {
   "use strict";
-  var App = angular.module("ionic-rating-stars", []);
-
-  //Filter for create array with count indicates
-  App.filter("rangeionicstars", () => {
+  angular.module("ionic-rating-stars", [])
+  .filter("rangeionicstars", () => {
+    /**
+      * @name rangeionicstars
+      * @desc Filter for create array with count indicates
+      * @param {Integer} n: Cant loop
+    */
     return (n) => {
       var res: number[] = [];
       for (var i = 0; i < n; i++){
@@ -14,10 +17,12 @@
       }
       return res;
     }
-  });
-
-  //Directive rating-stars
-  App.directive("ratingStars", ["$parse", "$timeout", ($parse, $timeout) => {
+  })
+  /**
+    * @desc This directive angular.js contains one container for rating with stars.
+    * @example <rating-stars ng-model="rating" max="max_stars"></rating-stars>
+  */
+  .directive("ratingStars", ["$parse", "$timeout", "$document", ($parse, $timeout, $document) => {
       return {
           restrict: 'E',
           template: (el, attr) => {
@@ -37,10 +42,16 @@
           },
           require: 'ngModel',
           controller: ["$scope", ($scope) => {
+            /**
+              * @name set_selected
+              * @desc Remove or add class to item selected
+              * @param {Integer} id: Id item selected
+              * @param {Integer} max: Cant total of stars
+            */
             $scope.set_selected = function(id, max){
               var i: number;
               for(i=1;i<=max;i++){
-                var el = angular.element(document.querySelector("#rating_star_" + i));
+                var el = angular.element($document[0].querySelector("#rating_star_" + i));
                 if(i<=id){
                   el.removeClass("ion-ios-star-outline").addClass("ion-ios-star");
                 }else{

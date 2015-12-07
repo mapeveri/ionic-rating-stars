@@ -1,7 +1,7 @@
 (function () {
     "use strict";
-    var App = angular.module("ionic-rating-stars", []);
-    App.filter("rangeionicstars", function () {
+    angular.module("ionic-rating-stars", [])
+        .filter("rangeionicstars", function () {
         return function (n) {
             var res = [];
             for (var i = 0; i < n; i++) {
@@ -9,8 +9,8 @@
             }
             return res;
         };
-    });
-    App.directive("ratingStars", ["$parse", "$timeout", function ($parse, $timeout) {
+    })
+        .directive("ratingStars", ["$parse", "$timeout", "$document", function ($parse, $timeout, $document) {
             return {
                 restrict: 'E',
                 template: function (el, attr) {
@@ -32,7 +32,7 @@
                         $scope.set_selected = function (id, max) {
                             var i;
                             for (i = 1; i <= max; i++) {
-                                var el = angular.element(document.querySelector("#rating_star_" + i));
+                                var el = angular.element($document[0].querySelector("#rating_star_" + i));
                                 if (i <= id) {
                                     el.removeClass("ion-ios-star-outline").addClass("ion-ios-star");
                                 }
