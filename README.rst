@@ -1,7 +1,7 @@
 Ionic Rating Stars
 ===================
 
-This directive angular.js contains one container for rating with stars.
+**THIS REPO IS DEPRECATED**. This directive angular.js contains one container for rating with stars.
 
 Install
 -------
